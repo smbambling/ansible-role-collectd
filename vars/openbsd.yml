@@ -1,0 +1,9 @@
+---
+_collectd_packages:
+  - collectd
+_collectd_config_file: /etc/collectd.conf
+_collectd_config_group: _collectd
+_collectd_dir: /etc/collectd
+_collectd_plugin_conf_dir: /etc/collectd.d
+_collectd_config_typesdb:
+  - /usr/local/share/collectd/types.db

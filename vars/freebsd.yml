@@ -1,0 +1,9 @@
+---
+_collectd_packages:
+  - collectd5
+_collectd_config_file: /usr/local/etc/collectd.conf
+_collectd_config_group: wheel
+_collectd_dir: /usr/local/etc/collectd
+_collectd_plugin_conf_dir: /usr/local/etc/collectd.d
+_collectd_config_typesdb:
+  - /usr/local/share/collectd/types.db

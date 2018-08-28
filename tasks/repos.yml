@@ -1,0 +1,4 @@
+---
+- name: Configure RedHat/CentOS Repos
+  include: redhat/repos.yml
+  when: (ansible_os_family | lower == "redhat")

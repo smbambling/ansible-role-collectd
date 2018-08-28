@@ -1,0 +1,21 @@
+---
+- name: Prepare
+  hosts: all
+  gather_facts: false
+  tasks:
+    - name: Try to determine OS Family information via raw
+      raw: uname -s
+      register: prepare_uname_kernel_name
+      changed_when: false
+
+    - name: Install FreeBSD Python27
+      become: true
+      raw: test -f /usr/local/bin/python2.7 || /usr/sbin/pkg install -y python27
+      changed_when: false
+      when: "'FreeBSD' in prepare_uname_kernel_name.stdout"
+
+    - name: Install OpenBSD Python27
+      become: true
+      raw: test -f /usr/local/bin/python2.7 || pkg_add -z python-2
+      changed_when: false
+      when: "'OpenBSD' in prepare_uname_kernel_name.stdout"

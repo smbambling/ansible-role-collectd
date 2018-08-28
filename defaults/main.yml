@@ -1,0 +1,44 @@
+---
+# Variables listed with no value are
+# considered to have a value of 'none'
+# These varables have the advantage of
+# still being able to be overridden via group/host vars
+# and obtaing a default value list in the role vars
+# using the set_fact module.
+#  - var/{{ ansible_os_family | lower }}.yml
+#  - Ex: vars/redhat.yml
+
+collectd_service_name: collectd
+collectd_packages:
+collectd_version:
+collectd_yum_repo_enabled:
+collectd_config_file:
+collectd_config_owner: root
+collectd_config_group:
+collectd_config_mode: 0640
+collectd_dir:
+collectd_plugin_conf_dir:
+collectd_plugin_conf_dir_mode: 0750
+collectd_plugin_conf_order: 10
+collectd_conf_autoloadplugin: false
+collectd_config_typesdb:
+collectd_config_write_queue_limit_high:
+collectd_config_write_queue_limit_low:
+collectd_config_interval: 60
+collectd_config_timeout: 2
+collectd_config_read_threads: 5
+collectd_config_write_threads: 5
+
+collectd_plugin_logfile:
+  - name: logfile
+    order: '00'
+    options:
+      LogLevel: "info"
+      File: "/var/log/collectd.log"
+      Timestamp: true
+      PrintSeverity: false
+
+collectd_plugins:
+  "{{ collectd_plugin_logfile }}"
+
+collectd_disabled_plugins: []

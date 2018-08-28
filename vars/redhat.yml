@@ -1,0 +1,11 @@
+---
+_collectd_packages:
+  - collectd
+_collectd_version: 5.8
+_collectd_yum_repo_enabled: yes
+_collectd_config_file: /etc/collectd.conf
+_collectd_config_group: root
+_collectd_dir: /etc/collectd.d
+_collectd_plugin_conf_dir: "{{ _collectd_dir }}"
+_collectd_config_typesdb:
+  - /usr/share/collectd/types.db

@@ -1,0 +1,15 @@
+---
+- name: Disable/Remove CollectD {{ item.name }} plugin"
+  become: true
+  file:
+    path: "{{ collectd_plugin_conf_dir }}/{{ item.order | default('10') }}_{{ item.name }}.conf"
+    state: absent
+
+- name: "Uninstall CollectD {{ item.name }} Plugin Package"
+  become: true
+  package:
+    name: "{{ item.package }}"
+    state: absent
+  when:
+    - item.package is defined
+    - (ansible_os_family | lower == "redhat")

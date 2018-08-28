@@ -1,0 +1,21 @@
+---
+- name: Include OS-specific settings
+  include_vars: file="{{ item }}"
+  with_first_found:
+    - "{{ ansible_os_family | lower }}.yml"
+  tags: always
+
+- name: Include CollectD Variable Override Tasks
+  include: collectd_variables_overrides.yml
+
+- name: Include CollectD Repo Tasks
+  include: repos.yml
+
+- name: Include CollectD Install Tasks
+  include: install.yml
+
+- name: Include CollectD Configuration Tasks
+  include: configure.yml
+
+- name: Include CollectD Service Tasks
+  include: service.yml

@@ -1,0 +1,16 @@
+---
+galaxy_info:
+  author: "Steven Bambling"
+  description: Configuration for CollectD and Plugins
+  license: MIT
+  min_ansible_version: 2.3
+  platforms:
+   - name: EL
+     versions:
+      - 6
+      - 7
+  galaxy_tags:
+    - monitoring
+    - metrics
+    - collectd
+dependencies: []

@@ -1,0 +1,44 @@
+---
+- name: Manage collectd.conf Configuration
+  become: true
+  template:
+    src: "{{ role_path }}/templates/collectd.conf.j2"
+    dest: "{{ collectd_config_file }}"
+    owner: "{{ collectd_config_owner }}"
+    group: "{{ collectd_config_group }}"
+    mode: "{{ collectd_config_mode }}"
+  notify:
+    - Restart CollectD
+
+- name: Validate CollectD Configuration
+  become: true
+  command: collectd -t
+  changed_when: false
+
+- name: Create collectd.d directory
+  become: true
+  file:
+    path: "{{ collectd_plugin_conf_dir }}"
+    state: directory
+    owner: "{{ collectd_config_owner }}"
+    group: "{{ collectd_config_group }}"
+    mode: "{{ collectd_plugin_conf_dir_mode }}"
+
+- name: Include CollectD Plugins
+  include: plugins.yml
+  with_items: "{{ collectd_plugins }}"
+  when: collectd_plugins | length > 0
+  notify:
+    - Restart CollectD
+
+- name: Include CollectD Disable Plugins
+  include: disable_plugins.yml
+  with_items: "{{ collectd_disabled_plugins.values() }}"
+  when: collectd_disabled_plugins | length > 0
+  notify:
+    - Restart CollectD
+
+- name: Validate CollectD Plugins
+  become: true
+  command: collectd -T
+  changed_when: False

@@ -1,0 +1,61 @@
+---
+- name: Set collectd_packages Variable
+  set_fact:
+    collectd_packages: "{{ _collectd_packages }}"
+  when: collectd_packages is none
+
+- name: Set collectd_version Variable
+  set_fact:
+    collectd_version: "{{ _collectd_version }}"
+  when:
+    - collectd_version is none
+    - ansible_os_family | lower == "redhat"
+
+- name: Set collectd_yum_repo_enabled Variable
+  set_fact:
+    collectd_yum_repo_enabled: "{{ _collectd_yum_repo_enabled }}"
+  when:
+    - collectd_yum_repo_enabled is none
+    - ansible_os_family | lower == "redhat"
+
+- name: Set collectd_config_file Variable
+  set_fact:
+    collectd_config_file: "{{ _collectd_config_file }}"
+  when:
+    - collectd_config_file is none
+
+- name: Set collectd_config_group Variable
+  set_fact:
+    collectd_config_group: "{{ _collectd_config_group }}"
+  when:
+    - collectd_config_group is none
+
+- name: Set collectd_dir Variable
+  set_fact:
+    collectd_dir: "{{ _collectd_dir }}"
+  when:
+    - collectd_dir is none
+
+- name: Set collectd_plugin_conf_dir Variable
+  set_fact:
+    collectd_plugin_conf_dir: "{{ _collectd_plugin_conf_dir }}"
+  when:
+    - collectd_plugin_conf_dir is none
+
+- name: Set collectd_config_typesdb Variable
+  set_fact:
+    collectd_config_typesdb: "{{ _collectd_config_typesdb }}"
+  when:
+    - collectd_config_typesdb is none
+
+- name: Configure RedHat/CentOS Variables
+  include: redhat/collectd_variables.yml
+  when: (ansible_os_family | lower == "redhat")
+
+- name: Configure FreeBSD Variables
+  include: freebsd/collectd_variables.yml
+  when: (ansible_os_family | lower == "freebsd")
+
+- name: Configure FreeBSD Variables
+  include: openbsd/collectd_variables.yml
+  when: (ansible_os_family | lower == "openbsd")

@@ -1,0 +1,57 @@
+---
+dependency:
+  name: galaxy
+  enabled: false
+
+driver:
+  name: vagrant
+  provider:
+    name: virtualbox
+
+lint:
+  name: yamllint
+  enabled: false
+
+platforms:
+  - name: freebsd11
+    box: freebsd/FreeBSD-11.2-STABLE
+    memory: 2048
+    cpus: 2
+    # https://www.vagrantup.com/docs/synced-folders/basic_usage.html
+    instance_raw_config_args:
+      - "vm.synced_folder '.', '/vagrant', disabled: true"
+      - "vm.base_mac = '080027D14C66'"
+      - "ssh.shell = 'sh'"
+  - name: openbsd63
+    box: generic/openbsd6
+    memory: 2048
+    cpus: 2
+    instance_raw_config_args:
+      - "vm.synced_folder '.', '/vagrant', disabled: true"
+      - "vm.base_mac = '080027D14C67'"
+      - "ssh.shell = 'sh'"
+
+provisioner:
+  name: ansible
+  inventory:
+    links:
+      group_vars: ../ci_vars/group_vars
+      host_vars: ../ci_vars/host_vars
+  lint:
+    name: ansible-lint
+    force-color: true
+  env:
+    # if not set wants to use libvirt on my box
+    VAGRANT_DEFAULT_PROVIDER: virtualbox
+
+scenario:
+  name: vbox
+
+verifier:
+  name: testinfra
+  options:
+    #'junit-xml': reports/junit.xml
+    n: 5
+  lint:
+    name: flake8
+    enabled: true

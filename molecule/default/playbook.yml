@@ -1,0 +1,30 @@
+---
+- name: Collectd Testing Playbook
+  hosts: all
+
+  roles:
+    - {role: ansible-role-collectd}
+
+  tasks:
+    - name: Install CollectD Disk Plugin
+      include_role:
+        name: ansible-role-collectd
+        tasks_from: plugins_class.yml
+      vars:
+        collectd_plugins:
+          - name: disk
+            options:
+              Disk:
+                - '/^dm/'
+                - '/^docker/'
+              IgnoreSelected: true
+              UdevNameAttr: DM_NAME
+            package: collectd-disk
+          - name: cpu
+            options:
+              ReportByState: true
+              ReportByCpu: true
+              ValuesPercentage: false
+              ReportNumCpu: true
+              ReportGuestState: false
+              SubtractGuestState: true

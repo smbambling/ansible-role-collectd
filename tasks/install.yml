@@ -1,0 +1,7 @@
+---
+- name: Install CollectD Packages
+  become: true
+  package:
+    name: "{{ item }}"
+    state: present
+  with_items: "{{ collectd_packages }}"

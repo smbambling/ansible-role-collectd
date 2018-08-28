@@ -1,0 +1,18 @@
+---
+- name: "Load CollectD {{ item.name }} plugin"
+  become: true
+  template:
+    src: "{{ role_path }}/templates/plugins.conf.j2"
+    dest: "{{ collectd_plugin_conf_dir }}/{{ item.order | default('10') }}_{{ item.name }}.conf"
+    owner: "{{ collectd_config_owner }}"
+    group: "{{ collectd_config_group }}"
+    mode: "{{ collectd_plugin_conf_dir_mode }}"
+
+- name: "Install CollectD {{ item.name }} Plugin Package"
+  become: true
+  package:
+    name: "{{ item.package }}"
+    state: present
+  when:
+    - item.package is defined
+    - (ansible_os_family | lower == "redhat")
