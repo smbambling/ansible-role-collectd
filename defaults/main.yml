@@ -11,6 +11,8 @@
 collectd_service_name: collectd
 collectd_packages:
 collectd_version:
+collectd_yum_repo_baseurl:
+collectd_yum_repo_rpm_key:
 collectd_yum_repo_enabled:
 collectd_config_file:
 collectd_config_owner: root

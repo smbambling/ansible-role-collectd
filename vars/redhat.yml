@@ -2,6 +2,8 @@
 _collectd_packages:
   - collectd
 _collectd_version: 5.8
+_collectd_yum_repo_baseurl: https://pkg.ci.collectd.org/rpm/collectd-{{ collectd_version }}/epel-$releasever-$basearch/
+_collectd_yum_repo_rpm_key: https://pkg.ci.collectd.org/pubkey.asc
 _collectd_yum_repo_enabled: yes
 _collectd_config_file: /etc/collectd.conf
 _collectd_config_group: root

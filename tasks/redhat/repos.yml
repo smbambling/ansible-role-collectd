@@ -2,7 +2,7 @@
 - name: Import Collectd RPM GPG Key.
   become: true
   rpm_key:
-    key: https://pkg.ci.collectd.org/pubkey.asc
+    key: "{{ collectd_yum_repo_rpm_key }}"
     state: present
 
 - name: Configure Collectd Yum repository.
@@ -10,7 +10,7 @@
   yum_repository:
     name: collectd
     description: Collectd Yum Repo - $basearch
-    baseurl: "https://pkg.ci.collectd.org/rpm/collectd-{{ collectd_version }}/epel-$releasever-$basearch/"
+    baseurl: "{{ collectd_yum_repo_baseurl }}"
     enabled: "{{ collectd_yum_repo_enabled }}"
     gpgcheck: yes
-    gpgkey: https://pkg.ci.collectd.org/pubkey.asc
+    gpgkey: "{{ collectd_yum_repo_rpm_key }}"

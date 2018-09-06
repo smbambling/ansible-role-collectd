@@ -11,6 +11,20 @@
     - collectd_version is none
     - ansible_os_family | lower == "redhat"
 
+- name: Set collectd_yum_repo_baseurl Variable
+  set_fact:
+    collectd_yum_repo_baseurl: "{{ _collectd_yum_repo_baseurl }}"
+  when:
+    - collectd_yum_repo_baseurl is none
+    - ansible_os_family | lower == "redhat"
+
+- name: Set collectd_yum_repo_rpm_key Variable
+  set_fact:
+    collectd_yum_repo_rpm_key: "{{ _collectd_yum_repo_rpm_key }}"
+  when:
+    - collectd_yum_repo_rpm_key is none
+    - ansible_os_family | lower == "redhat"
+
 - name: Set collectd_yum_repo_enabled Variable
   set_fact:
     collectd_yum_repo_enabled: "{{ _collectd_yum_repo_enabled }}"
@@ -47,15 +61,3 @@
     collectd_config_typesdb: "{{ _collectd_config_typesdb }}"
   when:
     - collectd_config_typesdb is none
-
-- name: Configure RedHat/CentOS Variables
-  include: redhat/collectd_variables.yml
-  when: (ansible_os_family | lower == "redhat")
-
-- name: Configure FreeBSD Variables
-  include: freebsd/collectd_variables.yml
-  when: (ansible_os_family | lower == "freebsd")
-
-- name: Configure FreeBSD Variables
-  include: openbsd/collectd_variables.yml
-  when: (ansible_os_family | lower == "openbsd")
