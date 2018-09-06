@@ -1,9 +1,9 @@
 # CollectD 
 
-[![Ansible Galaxy](https://img.shields.io/badge/ansible--galaxy-smbambling.accounts-blue.svg)](https://galaxy.ansible.com/smbambling/accounts/)
-[![Build Status](https://travis-ci.org/smbambling/ansible-role-accounts.svg?branch=master)](https://travis-ci.org/smbambling/ansible-role-accounts)
-[![CodeClimate](https://codeclimate.com/github/smbambling/ansible-role-accounts/badges/gpa.svg)](https://codeclimate.com/github/smbambling/ansible-role-accounts)
-[![IssueCount](https://codeclimate.com/github/smbambling/ansible-role-accounts/badges/issue_count.svg)](https://codeclimate.com/github/smbambling/ansible-role-accounts)
+[![Ansible Galaxy](https://img.shields.io/badge/ansible--galaxy-smbambling.collectd-blue.svg)](https://galaxy.ansible.com/smbambling/collectd/)
+[![Build Status](https://travis-ci.org/smbambling/ansible-role-collectd.svg?branch=master)](https://travis-ci.org/smbambling/ansible-role-collectd)
+[![CodeClimate](https://codeclimate.com/github/smbambling/ansible-role-collectd/badges/gpa.svg)](https://codeclimate.com/github/smbambling/ansible-role-collectd)
+[![IssueCount](https://codeclimate.com/github/smbambling/ansible-role-collectd/badges/issue_count.svg)](https://codeclimate.com/github/smbambling/ansible-role-collectd)
 
 ## Table of Contents
 
