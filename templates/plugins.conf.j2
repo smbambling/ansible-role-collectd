@@ -27,8 +27,9 @@
 LoadPlugin {{ item.name }}
 
 {% if item.options -%}
-  <Plugin "{{ item.name }}">
+<Plugin "{{ item.name }}">
   {# Render plugin options -#}
-  {{ print_opts(item.options, indent='  ', count=1) -}}
-  </Plugin>
-{% endif -%}
+  {{ print_opts(item.options, indent='  ', count=0) -}}
+  {# Render plugin options -#}
+</Plugin>
+{%- endif -%}
