@@ -51,10 +51,12 @@ See [Contributing](.github/CONTRIBUTING.md).
 
 This role has been tested against the following distributions and Ansible version:
 
-|Distribution|Ansible 2.3|Ansible 2.4|Ansible 2.5|Ansible 2.6|
-|------------|-----------|-----------|-----------|-----------|
-|**Centos 6**|<span style="color:green">Yes</span>|<span style="color:green">Yes</span>|<span style="color:green">Yes</span>|<span style="color:green">Yes</span>|
-|**Centos 7**|<span style="color:green">Yes</span>|<span style="color:green">Yes</span>|<span style="color:green">Yes</span>|<span style="color:green">Yes</span>|
+|Distribution|Ansible 2.3|Ansible 2.4|Ansible 2.5|Ansible 2.6| Notes |
+|------------|-----------|-----------|-----------|-----------|-------|
+|**Centos 6**|<span style="color:green">Yes</span>|<span style="color:green">Yes</span>|<span style="color:green">Yes</span>|<span style="color:green">Yes</span>||
+|**Centos 7**|<span style="color:green">Yes</span>|<span style="color:green">Yes</span>|<span style="color:green">Yes</span>|<span style="color:red">No</span>|Requires two runs to enable service with Ansible 2.6|
+|**FreeBSD 11.2**|<span style="color:green">Yes</span>|<span style="color:green">Yes</span>|<span style="color:green">Yes</span>|<span style="color:green">Yes</span>||
+|**OpenBSD 6.3**|<span style="color:green">Yes</span>|<span style="color:green">Yes</span>|<span style="color:green">Yes</span>|<span style="color:green">Yes</span>||
 
 ## License
 

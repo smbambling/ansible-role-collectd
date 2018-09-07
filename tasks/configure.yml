@@ -10,11 +10,6 @@
   notify:
     - Restart CollectD
 
-- name: Validate CollectD Configuration
-  become: true
-  command: collectd -t
-  changed_when: false
-
 - name: Create collectd.d directory
   become: true
   file:
@@ -37,6 +32,11 @@
   when: collectd_disabled_plugins | length > 0
   notify:
     - Restart CollectD
+
+- name: Validate CollectD Configuration
+  become: true
+  command: collectd -t
+  changed_when: false
 
 - name: Validate CollectD Plugins
   become: true

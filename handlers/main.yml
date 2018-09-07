@@ -1,5 +1,6 @@
 ---
 - name: Restart CollectD
+  become: true
   service:
       name: collectd
       state: restarted
