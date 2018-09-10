@@ -6,7 +6,7 @@
     - {role: ansible-role-collectd}
 
   tasks:
-    - name: Install CollectD Disk Plugin
+    - name: Install Collectd Disk Plugin
       include_role:
         name: ansible-role-collectd
         tasks_from: plugins_class.yml
@@ -28,3 +28,13 @@
               ReportNumCpu: true
               ReportGuestState: false
               SubtractGuestState: true
+          - name: postgresql
+            options:
+              Query magic:
+                Statement: "SELECT magic FROM wizard WHERE host = $1;"
+                Param: hostname
+                Result:
+                  Type: gauge
+                  InstancePrefix: "magic"
+                  ValuesFrom: magic
+            package: collectd-postgresql

@@ -5,17 +5,17 @@
     - "{{ ansible_os_family | lower }}.yml"
   tags: always
 
-- name: Include CollectD Variable Override Tasks
+- name: Include Collectd Variable Override Tasks
   include: collectd_variables_overrides.yml
 
-- name: Include CollectD Repo Tasks
+- name: Include Collectd Repo Tasks
   include: repos.yml
 
-- name: Include CollectD Install Tasks
+- name: Include Collectd Install Tasks
   include: install.yml
 
-- name: Include CollectD Configuration Tasks
+- name: Include Collectd Configuration Tasks
   include: configure.yml
 
-- name: Include CollectD Service Tasks
+- name: Include Collectd Service Tasks
   include: service.yml

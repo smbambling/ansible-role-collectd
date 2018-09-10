@@ -1,5 +1,5 @@
 ---
-- name: "Load CollectD {{ item.name }} plugin"
+- name: "Load Collectd {{ item.name }} plugin"
   become: true
   template:
     src: "{{ role_path }}/templates/plugins.conf.j2"
@@ -8,7 +8,7 @@
     group: "{{ collectd_config_group }}"
     mode: "{{ collectd_plugin_conf_dir_mode }}"
 
-- name: "Install CollectD {{ item.name }} Plugin Package"
+- name: "Install Collectd {{ item.name }} Plugin Package"
   become: true
   package:
     name: "{{ item.package }}"

@@ -1,5 +1,5 @@
 ---
-- name: Install CollectD Packages
+- name: Install Collectd Packages
   become: true
   package:
     name: "{{ item }}"

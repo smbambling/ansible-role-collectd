@@ -1,5 +1,5 @@
 ---
-- name: Include CollectD Plugins
+- name: Include Collectd Plugins
   include: plugins.yml
   with_items: "{{ collectd_plugins }}"
   when: collectd_plugins | length > 0

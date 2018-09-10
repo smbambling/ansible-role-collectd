@@ -1,10 +1,10 @@
 ---
-# Variables listed with no value are
-# considered to have a value of 'none'
-# These varables have the advantage of
-# still being able to be overridden via group/host vars
-# and obtaing a default value list in the role vars
-# using the set_fact module.
+# Variables listed in **main/defaults.yml** with no
+# value are considered to have a value of 'none'.
+# If these variables are left unset, they are assigned
+# a value from the _collectd\_variables\_overrides_ task
+# using the set_fact Ansible module. The values are obtained
+# from the collectd role variables in /vars/* based on the OS family.
 #  - var/{{ ansible_os_family | lower }}.yml
 #  - Ex: vars/redhat.yml
 

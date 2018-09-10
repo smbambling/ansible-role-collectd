@@ -1,7 +1,7 @@
 ---
 galaxy_info:
   author: "Steven Bambling"
-  description: Configuration for CollectD and Plugins
+  description: Configuration for Collectd and Plugins
   license: MIT
   min_ansible_version: 2.3
   platforms:

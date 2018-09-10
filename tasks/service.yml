@@ -1,5 +1,5 @@
 ---
-- name: Start CollectD and enable start at boot time.
+- name: Start Collectd and enable start at boot time.
   become: true
   service:
     name: "{{ collectd_service_name }}"
