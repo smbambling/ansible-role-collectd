@@ -40,7 +40,11 @@ collectd_plugin_logfile:
       Timestamp: true
       PrintSeverity: false
 
+collectd_plugin_uptime:
+  - name: uptime
+
 collectd_plugins:
-  "{{ collectd_plugin_logfile }}"
+  - "{{ collectd_plugin_logfile }}"
+  - "{{ collectd_plugin_uptime }}"
 
 collectd_disabled_plugins: []

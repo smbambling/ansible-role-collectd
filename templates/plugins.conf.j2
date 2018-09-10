@@ -26,7 +26,7 @@
 
 LoadPlugin {{ item.name }}
 
-{% if item.options -%}
+{% if item.options is defined -%}
 <Plugin "{{ item.name }}">
   {# Render plugin options -#}
   {{ print_opts(item.options, indent='  ', count=0) -}}
