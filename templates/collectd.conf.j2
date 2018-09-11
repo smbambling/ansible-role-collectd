@@ -6,8 +6,8 @@
 # Global settings for the daemon.                                            #
 ##############################################################################
 
-Hostname {{ ansible_nodename }}
-FQDNLookup false
+Hostname {{ collectd_config_hostname }}
+FQDNLookup {{ collectd_config_fqdnlookup }}
 #BaseDir     "/var/lib/collectd"
 #PIDFile     "/var/run/collectd.pid"
 #PluginDir   "/usr/lib64/collectd"
@@ -22,7 +22,7 @@ TypesDB "{{ path }}"
 # when an appropriate <Plugin ...> block is encountered.                     #
 # Disabled by default.                                                       #
 #----------------------------------------------------------------------------#
-{% if collectd_conf_autoloadplugin -%}
+{% if collectd_config_autoloadplugin -%}
 AutoLoadPlugin true
 {% else -%}
 AutoLoadPlugin false

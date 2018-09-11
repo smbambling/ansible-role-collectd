@@ -22,7 +22,9 @@ collectd_dir:
 collectd_plugin_conf_dir:
 collectd_plugin_conf_dir_mode: 0750
 collectd_plugin_conf_order: 10
-collectd_conf_autoloadplugin: false
+collectd_config_hostname: {{ ansible_hostname }}
+collectd_config_fqdnlookup: true
+collectd_config_autoloadplugin: false
 collectd_config_typesdb:
 collectd_config_write_queue_limit_high:
 collectd_config_write_queue_limit_low:
