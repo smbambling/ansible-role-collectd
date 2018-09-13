@@ -35,10 +35,10 @@
 
 - name: Validate Collectd Configuration
   become: true
-  command: collectd -t
+  command: "{{ collectd_cmd }} -t"
   changed_when: false
 
 - name: Validate Collectd Plugins
   become: true
-  command: collectd -T
+  command: "{{ collectd_cmd }} -T"
   changed_when: False

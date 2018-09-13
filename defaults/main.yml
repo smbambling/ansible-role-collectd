@@ -9,6 +9,7 @@
 #  - Ex: vars/redhat.yml
 
 collectd_service_name: collectd
+collectd_cmd: collectd
 collectd_packages:
 collectd_version:
 collectd_yum_repo_baseurl:
