@@ -4,6 +4,7 @@
   rpm_key:
     key: "{{ collectd_yum_repo_rpm_key }}"
     state: present
+  when: ansible_distribution_major_version >= '6'
 
 - name: Configure Collectd Yum repository.
   become: true
@@ -12,5 +13,5 @@
     description: Collectd Yum Repo - $basearch
     baseurl: "{{ collectd_yum_repo_baseurl }}"
     enabled: "{{ collectd_yum_repo_enabled }}"
-    gpgcheck: yes
+    gpgcheck: "{{ collectd_yum_repo_gpgcheck }}"
     gpgkey: "{{ collectd_yum_repo_rpm_key }}"
