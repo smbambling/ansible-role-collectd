@@ -26,8 +26,13 @@ platforms:
     volumes:
       - /sys/fs/cgroup:/sys/fs/cgroup:ro
 
+
 provisioner:
   name: ansible
+  inventory:
+    links:
+      group_vars: ../ci_vars/group_vars
+      host_vars: ../ci_vars/host_vars
   lint:
     name: ansible-lint
     force-color: true

@@ -70,5 +70,5 @@
 
 - name: Merge typesdb variables
   set_fact:
-    collectd_config_typesdb:
+    collectd_config_typesdb_combined:
       "{{ collectd_config_typesdb | union(collectd_config_typesdb_defaults) }}"

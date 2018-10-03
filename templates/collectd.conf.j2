@@ -11,8 +11,8 @@ FQDNLookup {{ collectd_config_fqdnlookup }}
 #BaseDir     "/var/lib/collectd"
 #PIDFile     "/var/run/collectd.pid"
 #PluginDir   "/usr/lib64/collectd"
-{% if collectd_config_typesdb != None -%}
-{%    for path in collectd_config_typesdb -%}
+{% if collectd_config_typesdb_combined != None -%}
+{%    for path in collectd_config_typesdb_combined -%}
 TypesDB "{{ path }}"
 {%    endfor -%}
 {% endif %}

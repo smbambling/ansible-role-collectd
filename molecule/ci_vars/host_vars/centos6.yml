@@ -1,0 +1,3 @@
+---
+collectd_config_typesdb:
+  - /etc/collectd.d/foobar.db

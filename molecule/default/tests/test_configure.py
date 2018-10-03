@@ -54,3 +54,12 @@ def test_collectd_d_dir(host):
         assert directory.user == collectd_config_owner
         assert directory.group == collectd_config_group
         assert oct(directory.mode) == collectd_plugin_conf_dir_mode
+
+
+def test_collectd_config_typesdb(host):
+    if host.system_info.release.split('.')[0] == '6':
+        collectd_config_file = '/etc/collectd.conf'
+
+        with host.sudo():
+            file = host.file(collectd_config_file)
+            assert "foobar.db" in file.content
