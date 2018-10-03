@@ -48,7 +48,8 @@ them are as follows. (For all variables, take a look at defaults/main.yml)
 | collectd\_plugin\_conf\_dir\_mode | 0750 | Int | Plugins directory mode|
 | collectd\_plugin\_conf\_order| 10 | Int | Plugin file prefix, to set load order when available|
 | collectd\_conf\_autoloadplugin | false | Boolean | Set the AutoLoadPlugin value in the collectd configuration|
-| collectd\_config\_typesdb | See role variables (/vars) | Array | Set the TypesDB value(s) in the collectd configuration|
+| collectd\_config\_typesdb | None | Array | Set the TypesDB value(s) in the collectd configuration|
+| collectd\_config\_typesdb_defaults | See role variables (/vars) | Array | Set the default TypesDB value(s) merged with the values from **collectd\_config\_typesdb** |
 | collectd\_config\_write\_queue\_limit\_high | See role variables (/vars) | String | Enable/Set the WriteQueueLimitHigh value in the collectd configuration  |
 | collectd\_config\_write\_queue\_limit\_low | See role variables (/vars) | String | Enable/Set the WriteQueueLimitLow value in the collectd configuration  |
 | collectd\_config\_interval| 60 | Int | Set the Interval value in the collectd configuration |

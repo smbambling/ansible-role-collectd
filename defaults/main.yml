@@ -28,6 +28,7 @@ collectd_config_hostname: "{{ ansible_hostname }}"
 collectd_config_fqdnlookup: "true"  # this is a string in the config
 collectd_config_autoloadplugin: false
 collectd_config_typesdb:
+collectd_config_typesdb_defaults:
 collectd_config_write_queue_limit_high:
 collectd_config_write_queue_limit_low:
 collectd_config_interval: 60

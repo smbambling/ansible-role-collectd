@@ -56,8 +56,19 @@
   when:
     - collectd_plugin_conf_dir is none
 
+- name: Set collectd_config_typesdb_defaults Variable
+  set_fact:
+    collectd_config_typesdb_defaults: "{{ _collectd_config_typesdb_defaults }}"
+  when:
+    - collectd_config_typesdb_defaults is none
+
 - name: Set collectd_config_typesdb Variable
   set_fact:
-    collectd_config_typesdb: "{{ _collectd_config_typesdb }}"
+    collectd_config_typesdb: []
   when:
     - collectd_config_typesdb is none
+
+- name: Merge typesdb variables
+  set_fact:
+    collectd_config_typesdb:
+      "{{ collectd_config_typesdb | union(collectd_config_typesdb_defaults) }}"
