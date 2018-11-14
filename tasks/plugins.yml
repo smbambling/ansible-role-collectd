@@ -14,5 +14,5 @@
     name: "{{ item.package }}"
     state: present
   when:
-    - item.package is defined
+    - (item.package is defined and item.package != "")
     - (ansible_os_family | lower == "redhat")
